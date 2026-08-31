@@ -291,6 +291,7 @@ _PRD_STOPWORDS = {
     "muy",
     "mas",
     "más",
+    "máximo",
     "menos",
     "tan",
     "tanto",

@@ -8,7 +8,9 @@ from openai import OpenAIError
 from app.agent.logger import log_step
 from app.agent.tools import TOOLS_SCHEMA, buscar_regla_prd
 
+# Baranda #3 · BUDGET · límite de iteraciones del loop
 MAX_STEPS = 5
+# Baranda #1 · SCOPE · definida en el SYSTEM_PROMPT
 SYSTEM_PROMPT = (
     "Solo respondés sobre el PRD. Si te preguntan otra cosa, respondés 'fuera de alcance'. "
     "No ejecutás acciones destructivas y no inventás resultados. "
@@ -89,11 +91,6 @@ def run_agent(question: str, client) -> str:
             if not isinstance(respuesta, str) or not respuesta.strip():
                 return "Error: la respuesta final del modelo está vacía."
             respuesta = respuesta.strip()
-            if (
-                respuesta.startswith("Sin coincidencias para '")
-                and "' en el PRD." in respuesta
-            ):
-                return "fuera de alcance"
             return respuesta
 
         termino = action_input.get("termino")

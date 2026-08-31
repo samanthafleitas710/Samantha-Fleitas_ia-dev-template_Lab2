@@ -119,3 +119,83 @@ Resultado:
 
 Justificación del patrón:
 Se utilizó la separación Router → Service → Repository para aislar HTTP, lógica de negocio y acceso a datos, reduciendo el acoplamiento y facilitando las pruebas.
+
+# AI_USAGE.md · Proyecto Final Samantha Fleitas
+
+## Entrada 1 · 2026-08-31
+
+**Contexto:** generación del esqueleto del agente en `app/agent/`.
+
+**Herramienta IA:** GitHub Copilot Agent Mode.
+
+**Prompt clave:** generación de `tools.py`, `loop.py` y `logger.py` siguiendo el patrón ReAct.
+
+**Decisión IA:** propuso el esqueleto inicial del agente con ciclo ReAct, logger y schema de herramientas.
+
+**Decisión humana:** revisé los archivos generados y validé que respetaran la estructura solicitada por el laboratorio.
+
+**Aprendizaje:** el prompting detallado permitió obtener una estructura muy cercana a la requerida.
+
+---
+
+## Entrada 2 · 2026-08-31
+
+**Contexto:** implementación de `buscar_regla_prd`.
+
+**Herramienta IA:** GitHub Copilot.
+
+**Prompt clave:** búsqueda lexical sobre el PRD con contexto.
+
+**Decisión IA:** propuso una implementación con recuperación de líneas cercanas.
+
+**Decisión humana:** corregí el contexto para devolver hasta tres líneas antes y tres líneas después de cada coincidencia.
+
+**Aprendizaje:** las respuestas generadas deben revisarse para asegurar que cumplan exactamente la consigna.
+
+---
+
+## Entrada 3 · 2026-08-31
+
+**Contexto:** corrección de compatibilidad con Mock LLM.
+
+**Herramienta IA:** Copilot y asistencia conversacional.
+
+**Prompt clave:** análisis del error de parsing JSON en el ciclo del agente.
+
+**Decisión IA:** identificó que el Mock esperaba marcadores ReAct y acciones específicas.
+
+**Decisión humana:** actualicé el SYSTEM_PROMPT y normalicé nombres de acciones recibidas.
+
+**Aprendizaje:** un agente funcional depende tanto del contrato de entrada como del formato esperado por el proveedor.
+
+---
+
+## Entrada 4 · 2026-08-31
+
+**Contexto:** validación de guardrails.
+
+**Herramienta IA:** Copilot.
+
+**Prompt clave:** prueba de consultas fuera del alcance del PRD.
+
+**Decisión IA:** sugirió revisar la respuesta cuando no existían coincidencias.
+
+**Decisión humana:** ajusté el comportamiento para responder explícitamente "fuera de alcance".
+
+**Aprendizaje:** las restricciones de alcance deben verificarse mediante pruebas adversariales.
+
+---
+
+## Entrada 5 · 2026-08-31
+
+**Contexto:** validación final del agente y ejecución de pruebas.
+
+**Herramienta IA:** GitHub Copilot.
+
+**Prompt clave:** depuración del flujo completo del agente.
+
+**Decisión IA:** ayudó a detectar diferencias entre el comportamiento esperado y el observado durante las pruebas.
+
+**Decisión humana:** ejecuté pruebas manuales y automáticas para validar el resultado final.
+
+**Aprendizaje:** la revisión humana sigue siendo necesaria incluso cuando la IA genera código funcional.

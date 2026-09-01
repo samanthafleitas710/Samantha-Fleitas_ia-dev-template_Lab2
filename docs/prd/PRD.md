@@ -8,6 +8,7 @@
 - Los filtros mínimos de la consulta son fecha, estado y monto.
 - La consulta debe ser paginada.
 - No debe exponer datos completos de tarjeta ni datos de autenticación.
+- El PAN no debe exponerse completo; solo se exponen los últimos 4 dígitos.
 - El caso debe usar únicamente datos sintéticos.
 
 ### Propuesta
@@ -100,6 +101,7 @@ Criterios de aceptación:
 ### Propuesta
 - Confidencialidad:
   - La solución debe evitar exponer datos completos de tarjeta y datos de autenticación.
+  - La solución debe mostrar solo los últimos 4 dígitos del PAN cuando se expone información relacionada con la tarjeta.
 - Integridad del caso:
   - El escenario debe basarse en datos sintéticos.
 - Usabilidad de consulta:
